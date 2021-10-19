@@ -2,6 +2,7 @@ package model.account;
 public class Student extends User {
     public Student(String name, String id, int age, String nameAccount, String password) {
         super(name, id, age, nameAccount, password);
+        super.setRole("Student");
     }
 
     @Override

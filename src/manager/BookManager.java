@@ -17,7 +17,7 @@ public class BookManager implements IGeneralManager<Book> {
         }
         return bookManager;
     }
-    private List<Book> bookList=new ArrayList<>();
+    public static List<Book> bookList=new ArrayList<>();
 
     @Override
     public void save(Book book) {
