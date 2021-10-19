@@ -8,16 +8,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookManager implements IGeneralManager<Book> {
+    private List<Book> bookList;
     public static BookManager bookManager;
-    private BookManager(){
+    private BookManager(List<Book> bookList){
+        this.bookList=bookList;
     }
-    public static BookManager getInstance(){
+    public static BookManager getInstance(List<Book> bookList){
         if(bookManager==null){
-            bookManager=new BookManager();
+            bookManager=new BookManager(bookList);
         }
         return bookManager;
     }
-    public static List<Book> bookList=new ArrayList<>();
+
+    public List<Book> getBookList() {
+        return bookList;
+    }
+
+    public void setBookList(List<Book> bookList) {
+        this.bookList = bookList;
+    }
 
     @Override
     public void save(Book book) {
@@ -36,9 +45,9 @@ public class BookManager implements IGeneralManager<Book> {
 
     @Override
     public Book search(String code) {
-        for (int i = 0; i < bookList.size(); i++) {
-            if(bookList.get(i).getCode().equals(code)){
-                return bookList.get(i);
+        for (Book book : bookList) {
+            if (book.getCode().equals(code)) {
+                return book;
             }
         }
         return null;

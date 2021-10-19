@@ -5,24 +5,23 @@ import model.account.User;
 import model.book.Book;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 public class OrderManager implements IGeneralManager<Order> {
-    private BookManager bookManager = BookManager.getInstance();
+    private BookManager bookManager = BookManager.getInstance(BookManager.bookList);
     public static OrderManager orderManager;
 
-    private OrderManager() {
+    private OrderManager(List<Order> orderList) {
     }
 
-    public static OrderManager getInstance() {
+    public static OrderManager getInstance(List<Order> orderList) {
         if (orderManager == null) {
-            orderManager = new OrderManager();
+            orderManager = new OrderManager(orderList);
         }
         return orderManager;
     }
 
-    List<Order> orderList = new ArrayList<>();
+    public static List<Order> orderList;
 
     @Override
     public void save(Order order) {

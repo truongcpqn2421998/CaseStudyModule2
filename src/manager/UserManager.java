@@ -60,9 +60,4 @@ public class UserManager {
         librarianList.remove(index);
         librarianList.add(index,librarian);
     }
-
-
-
-
-
 }
