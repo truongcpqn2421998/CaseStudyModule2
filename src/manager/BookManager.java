@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookManager implements IGeneralManager<Book> {
-    private List<Book> bookList;
+    public static List<Book> bookList;
     public static BookManager bookManager;
     private BookManager(List<Book> bookList){
         this.bookList=bookList;

@@ -33,16 +33,23 @@ public class StudentManager implements IGeneralManager<Student> {
 
     @Override
     public void remove(Student student) {
-
+        studentList.remove(student);
     }
 
     @Override
     public void update(int index, Student student) {
-
+        studentList.remove(index);
+        studentList.add(index,student);
     }
 
     @Override
     public Student search(String id) {
+        for (Student student: studentList
+             ) {
+            if(student.getId().equals(id)){
+                return student;
+            }
+        }
         return null;
     }
 
