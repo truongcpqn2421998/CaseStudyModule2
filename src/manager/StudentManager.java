@@ -52,5 +52,13 @@ public class StudentManager implements IGeneralManager<Student> {
         }
         return null;
     }
+    public int findIndex(String id){
+        for (int i = 0; i < studentList.size(); i++) {
+            if(studentList.get(i).getId().equals(id)){
+                return i;
+            }
+        }
+        return -1;
+    }
 
 }

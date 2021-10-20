@@ -27,7 +27,7 @@ public class MenuLogin {
                 loginStudentAccount();
                 break;
             }
-        }while (choice==0);
+        }while (choice!=0);
 
     }
     public static void loginLibrarianAccount(){

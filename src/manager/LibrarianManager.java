@@ -51,4 +51,12 @@ public class LibrarianManager implements IGeneralManager<Librarian> {
         }
         return null;
     }
+    public int findIndex(String id){
+        for (int i = 0; i < librarianList.size(); i++) {
+            if(librarianList.get(i).getId().equals(id)){
+                return i;
+            }
+        }
+        return -1;
+    }
 }

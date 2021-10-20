@@ -6,7 +6,6 @@ public abstract class User {
     protected int age;
     protected String nameAccount;
     protected String password;
-    protected String role;
 
     public User(String name, String id, int age, String nameAccount, String password) {
         this.name = name;
@@ -16,13 +15,6 @@ public abstract class User {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 
     public String getName() {
         return name;
