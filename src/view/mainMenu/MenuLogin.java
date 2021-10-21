@@ -1,5 +1,8 @@
 package view.mainMenu;
 
+import manager.LibrarianManager;
+import manager.StudentManager;
+import view.LibrarianView.MenuLibrarian;
 import view.mainMenu.Login.LibrarianLogin;
 import view.mainMenu.Login.StudentLogin;
 import model.account.Librarian;
@@ -10,8 +13,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MenuLogin {
-    private static List<Librarian> librarianList=new ArrayList<>();
-    private static List<Student> studentList=new ArrayList<>();
+    private static List<Librarian> librarianList= LibrarianManager.librarianList;
+    private static List<Student> studentList= StudentManager.studentList;
 
 
     public static void Login(){

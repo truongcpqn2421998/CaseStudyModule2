@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderManager implements IGeneralManager<Order> {
-    private static List<Order> orderList;
-    private static List<Student> studentList;
-    private static List<Book> bookList;
+    public static List<Order> orderList;
+    public static List<Student> studentList=StudentManager.studentList;
+    public static List<Book> bookList=BookManager.bookList;
     public static OrderManager orderManager;
     private OrderManager(List<Order> orderList,List<Student> studentList,List<Book> bookList) {
     }
@@ -109,6 +109,7 @@ public class OrderManager implements IGeneralManager<Order> {
         }
         return null;
     }
+
 
 
 

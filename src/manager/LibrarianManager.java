@@ -5,7 +5,7 @@ import model.account.Librarian;
 import java.util.List;
 
 public class LibrarianManager implements IGeneralManager<Librarian> {
-    private List<Librarian> librarianList;
+    public static List<Librarian> librarianList;
     public static LibrarianManager librarianManager;
     private LibrarianManager(List<Librarian> librarianList){
         this.librarianList=librarianList;

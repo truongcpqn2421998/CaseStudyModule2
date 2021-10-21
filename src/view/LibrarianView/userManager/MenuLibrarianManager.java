@@ -1,4 +1,4 @@
-package view.userManager;
+package view.LibrarianView.userManager;
 
 import manager.LibrarianManager;
 import model.account.Librarian;
@@ -15,7 +15,7 @@ public class MenuLibrarianManager {
         Scanner scanner=new Scanner(System.in);
         int choice=-1;
         do{
-            System.out.println("_____Librarian Manager_____");
+            System.out.println("_____Librarian User Manager_____");
             System.out.println("1.Create new Librarian account");
             System.out.println("2.Remove a Librarian account");
             System.out.println("3.Repair a Librarian account ");

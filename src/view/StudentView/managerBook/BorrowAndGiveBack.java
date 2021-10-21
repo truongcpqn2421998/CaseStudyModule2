@@ -1,4 +1,4 @@
-package view.orderManager;
+package view.StudentView.managerBook;
 
 import manager.OrderManager;
 import model.Order;
@@ -10,33 +10,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class orderFunction {
+public class BorrowAndGiveBack {
     private static List<Order> orderList=new ArrayList<>();
     private static List<Student> studentList=new ArrayList<>();
     private static List<Book> bookList=new ArrayList<>();
     private static OrderManager orderManager=OrderManager.getInstance(orderList,studentList,bookList);
-//    public static void menu(){
-//        Scanner scanner=new Scanner(System.in);
-//        int choice=-1;
-//        do{
-//            System.out.println("|_____MENU ORDER_____|");
-//            System.out.println("1.Borrow Book");
-//            System.out.println("2.Give Book Back");
-//            System.out.println("3.Check a order");
-//            System.out.println("4.Check People overdue people");
-//            choice=scanner.nextInt();
-//            switch (choice){
-//                case 1:
-//                    borrow();
-//                    break;
-//                case 2:
-//                    giveBookBack();
-//                    break;
-//                case 3:
-//            }
-//
-//        }while (choice!=0);
-//    }
+    public static void menu(){
+        Scanner scanner=new Scanner(System.in);
+        int choice=-1;
+        do{
+            System.out.println("|_____MENU ORDER_____|");
+            System.out.println("1.Borrow Book");
+            System.out.println("2.Give Book Back");
+            System.out.println("0.Exit");
+            choice=scanner.nextInt();
+            switch (choice){
+                case 1:
+                    borrow();
+                    break;
+                case 2:
+                    giveBookBack();
+                    break;
+            }
+
+        }while (choice!=0);
+    }
     public static Book getABook(){
         Scanner scanner=new Scanner(System.in);
         System.out.println("Enter code you want to borrow");
@@ -90,21 +88,5 @@ public class orderFunction {
         orderManager.giveBookBack(book);
     }
 
-    public static void checkOrder(){
-        Scanner scanner=new Scanner(System.in);
-        String code=scanner.nextLine();
-        Order order=orderManager.search(code);
-        if(order!=null){
-            System.out.println(order.toString());
-        }else {
-            System.err.println("Order not exist");
-        }
-    }
-    public static void viewAllOrder(){
-        for (Order order: orderList
-             ) {
-            System.out.println(order);
-        }
-    }
 
 }

@@ -1,6 +1,6 @@
-package view.mainMenu;
-import view.bookManager.MenuBookManager;
-import view.userManager.MenuManagerUser;
+package view.LibrarianView;
+import view.LibrarianView.bookManager.MenuBookManager;
+import view.LibrarianView.userManager.MenuManagerUser;
 import java.util.Scanner;
 
 public class MenuLibrarian {
@@ -21,6 +21,7 @@ public class MenuLibrarian {
                     MenuBookManager.menu();
                     break;
                 case 3:
+
             }
         }while(choice!=0);
 

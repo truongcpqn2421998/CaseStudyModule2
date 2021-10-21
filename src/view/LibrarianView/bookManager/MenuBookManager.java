@@ -1,4 +1,4 @@
-package view.bookManager;
+package view.LibrarianView.bookManager;
 
 import manager.BookManager;
 import model.book.Book;

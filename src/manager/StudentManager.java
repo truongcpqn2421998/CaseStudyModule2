@@ -5,7 +5,7 @@ import model.account.Student;
 import java.util.List;
 
 public class StudentManager implements IGeneralManager<Student> {
-    private  List<Student> studentList;
+    public static  List<Student> studentList;
 
     public static StudentManager studentManager;
     private StudentManager(List<Student> studentList){
