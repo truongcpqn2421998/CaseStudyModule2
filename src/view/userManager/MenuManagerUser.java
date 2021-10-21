@@ -1,12 +1,5 @@
-package view.managerUser;
+package view.userManager;
 
-import manager.LibrarianManager;
-import manager.StudentManager;
-import model.account.Librarian;
-import model.account.Student;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class MenuManagerUser {

@@ -1,8 +1,7 @@
-package view.managerUser;
+package view.userManager;
 
 import manager.LibrarianManager;
 import model.account.Librarian;
-import model.account.UserType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,4 +85,5 @@ public class MenuLibrarianManager {
         Librarian librarian=createLibrarianAccount();
         librarianManager.update(index,librarian);
     }
+
 }

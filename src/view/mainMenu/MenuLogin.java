@@ -1,7 +1,7 @@
-package view;
+package view.mainMenu;
 
-import Login.LibrarianLogin;
-import Login.StudentLogin;
+import view.mainMenu.Login.LibrarianLogin;
+import view.mainMenu.Login.StudentLogin;
 import model.account.Librarian;
 import model.account.Student;
 
@@ -15,8 +15,8 @@ public class MenuLogin {
         int choice=-1;
         do{
             System.out.println("-----MENU-----");
-            System.out.println("1.Login with Librarian's account");
-            System.out.println("2.Login with Student's account");
+            System.out.println("1.view.mainMenu.Login with Librarian's account");
+            System.out.println("2.view.mainMenu.Login with Student's account");
             System.out.println("3.exit");
             choice=scanner.nextInt();
             switch (choice){
@@ -37,7 +37,7 @@ public class MenuLogin {
         String accountName;
         Librarian checkName=null;
         do{
-            System.out.println("Login account name:");
+            System.out.println("view.mainMenu.Login account name:");
             accountName=scanner.nextLine();
             checkName= librarianLogin.checkName(accountName);
             if(checkName==null){
@@ -62,7 +62,7 @@ public class MenuLogin {
         String accountName;
         Student checkName=null;
         do{
-            System.out.println("Login account name:");
+            System.out.println("view.mainMenu.Login account name:");
             accountName=scanner.nextLine();
             checkName=studentLogin.checkName(accountName);
             if(checkName==null){

@@ -1,7 +1,6 @@
-package view.managerUser;
+package view.userManager;
 
 import manager.StudentManager;
-import model.account.Librarian;
 import model.account.Student;
 
 import java.util.ArrayList;

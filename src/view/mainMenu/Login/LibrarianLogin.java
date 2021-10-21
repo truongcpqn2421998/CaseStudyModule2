@@ -1,4 +1,4 @@
-package Login;
+package view.mainMenu.Login;
 
 import model.account.Librarian;
 

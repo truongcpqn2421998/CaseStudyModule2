@@ -1,4 +1,4 @@
-package view.managerBook;
+package view.bookManager;
 
 import manager.BookManager;
 import model.book.Book;
@@ -22,34 +22,49 @@ public class MenuBookManager {
             System.out.println("3.Repair a Book");
             System.out.println("4.Display a Book");
             System.out.println("5.Display all book in library");
+            System.out.println("0.Exit");
             choice=scanner.nextInt();
             switch (choice){
                 case 1:
                     addBook();
                     break;
                 case 2:
-
+                    removeBook();
+                    break;
                 case 3:
+                    repairBook();
+                    break;
                 case 4:
+                    displayABook();
+                    break;
                 case 5:
+                    viewAllBookInLibrary();
+                    break;
             }
         }while (choice!=0);
     }
     public static void addBook(){
+        Book book = createBook();
+        if(book!=null){
+            bookManager.save(book);
+        }
+    }
+
+    private static Book createBook() {
         Scanner scanner=new Scanner(System.in);
-        Book book;
-        System.out.println("Enter Type Book you want to add:");
+        Book book=null;
+        System.out.println("Enter Type Book you want to create:");
         String type=scanner.nextLine();
         if(type.equals("technical")){
             book=createTechnicalBook();
-            bookManager.save(book);
         }else if(type.equals("economic")){
             book=createEconomicBook();
-            bookManager.save(book);
         }else {
             throw new IllegalArgumentException("Library don't want to take this");
         }
+        return book;
     }
+
     public static Book createEconomicBook(){
         Scanner str=new Scanner(System.in);
         System.out.println("Enter title of Economic Book:");
@@ -63,24 +78,54 @@ public class MenuBookManager {
     }
     public static Book createTechnicalBook(){
         Scanner str=new Scanner(System.in);
-        System.out.println("Enter title of Economic Book:");
+        System.out.println("Enter title of Technical Book:");
         String title=str.nextLine();
-        System.out.println("Enter category of Economic Book:");
+        System.out.println("Enter category of Technical Book:");
         String category=str.nextLine();
-        System.out.println("Enter code of Economic Book:");
+        System.out.println("Enter code of Technical Book:");
         String code=str.nextLine();
         Book book= BookFactory.getBook(BookType.TECHNICALBOOK,title,category,code);
         return book;
     }
     public static void removeBook(){
         Scanner str=new Scanner(System.in);
-        String code=str.nextLine()
+        String code=str.nextLine();
         System.out.println("Enter book's code you want to remove:");
         Book book=bookManager.search(code);
         if(book!=null){
             bookManager.remove(book);
         }else {
             throw new IllegalArgumentException("Not exist");
+        }
+    }
+    public static void repairBook(){
+        Scanner str=new Scanner(System.in);
+        int index=-1;
+        System.out.println("Enter Book's code you want to repair:");
+        String code=str.nextLine();
+        index=bookManager.findIndex(code);
+        if(index!=-1){
+            Book book=createBook();
+            bookManager.update(index,book);
+        }else {
+            throw new IllegalArgumentException("Not Exist");
+        }
+    }
+    public static void displayABook(){
+        Scanner str=new Scanner(System.in);
+        System.out.println("Enter book's code you want to view");
+        String code=str.nextLine();
+        Book book=bookManager.search(code);
+        if(book!=null){
+            System.out.println(bookManager.displayABook(book));
+        }else {
+            throw new IllegalArgumentException("Not Exist");
+        }
+    }
+    public static void viewAllBookInLibrary(){
+        for (Book book:bookList
+             ) {
+            bookManager.displayABook(book);
         }
     }
 

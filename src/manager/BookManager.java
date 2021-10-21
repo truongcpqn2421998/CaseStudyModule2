@@ -56,4 +56,15 @@ public class BookManager implements IGeneralManager<Book> {
     public Book createBook(BookType bookType,String title, String category, String code, boolean status){
         return BookFactory.getBook(bookType,title,category,code);
     }
+    public int findIndex(String code){
+        for (int i = 0; i < bookList.size(); i++) {
+            if(bookList.get(i).getCode().equals(i)){
+                return i;
+            }
+        }
+        return -1;
+    }
+    public String displayABook(Book book){
+        return book.toString();
+    }
 }
