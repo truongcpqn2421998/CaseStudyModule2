@@ -1,11 +1,12 @@
 package manager;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import model.Order;
 import model.account.Student;
-import model.account.User;
 import model.book.Book;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class OrderManager implements IGeneralManager<Order> {
@@ -50,15 +51,66 @@ public class OrderManager implements IGeneralManager<Order> {
         return null;
     }
 
-    public Book borrowABook(String code) {
-        Book book = bookManager.search(code);
-        book.setStatus(false);
-        return book;
-    }
-    public Order createOrder(User user,LocalDate borrowDate,String code,List<Book> bookList){
-        Order order= new Order(user,borrowDate,code,bookList);
+    public Order createOrder(Student student,LocalDate borrowDate,String code,List<Book> bookList){
+        Order order= new Order(student,borrowDate,code,bookList);
         save(order);
         return order;
     }
+    public Book getABook(String code){
+        for (Book book: bookList
+             ) {
+            if(book.getCode().equals(code)&& book.isStatus()==true){
+                book.setStatus(false);
+                return book;
+            }
+        }
+        return null;
+    }
+
+    public Student checkIdStudent(String id){
+        for (Student student: studentList
+             ) {
+            if(student.getId().equals(id)){
+                return student;
+            }
+        }
+        return null;
+    }
+
+    public void giveBookBack(Book book){
+        Order order=findOrderToGiveBack(book);
+        book.setStatus(true);
+        order.getBookList().remove(book);
+    }
+    public Order findOrderToGiveBack(Book book){
+        for (Order order: orderList
+             ) {
+            if(checkBookInOrder(order.getBookList(),book)){
+                return order;
+            }
+        }
+        return null;
+    }
+    public boolean checkBookInOrder(List<Book>list,Book book){
+        for (Book bookTest:list
+             ) {
+            if(bookTest.getCode().equals(book.getCode())){
+                return true;
+            }
+        }
+        return false;
+    }
+    public Book checkCodeBook(String code){
+        for (Book book: bookList
+             ) {
+            if(book.getCode().equals(code)){
+                return book;
+            }
+        }
+        return null;
+    }
+
+
+
 
 }

@@ -1,31 +1,31 @@
 package model;
 
-import model.account.User;
+import model.account.Student;
 import model.book.Book;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public class Order {
-    private User user;
+    private Student student;
     private LocalDate borrowDate;
     private String code;
     private List<Book> bookList;
 
 
-    public Order(User user, LocalDate borrowDate, String code, List<Book> bookList) {
-        this.user = user;
+    public Order(Student student, LocalDate borrowDate, String code, List<Book> bookList) {
+        this.student = student;
         this.borrowDate = borrowDate;
         this.code = code;
         this.bookList = bookList;
     }
 
-    public User getUser() {
-        return user;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Student student) {
+        this.student = student;
     }
 
     public LocalDate getBorrowDate() {
@@ -59,7 +59,7 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-                "user=" + user +
+                "Student=" + student +
                 ", borrowDate=" + borrowDate +
                 ", code='" + code + '\'' +
                 ", bookList=" + bookList +

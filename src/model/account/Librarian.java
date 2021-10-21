@@ -1,6 +1,6 @@
 package model.account;
 
-public class Librarian extends User {
+public class Librarian extends User  {
 
     public Librarian(String name, String id, int age, String nameAccount, String password) {
         super(name, id, age, nameAccount, password);

@@ -9,7 +9,7 @@ public class MenuManagerUser {
         do{
             System.out.println("|______MENU USER_____|");
             System.out.println("1.Librarian Manager");
-            System.out.println("2.Librarian Manager");
+            System.out.println("2.Student Manager");
             choice=num.nextInt();
             switch (choice){
                 case 1:

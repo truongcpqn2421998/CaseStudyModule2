@@ -10,14 +10,19 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MenuLogin {
+    private static List<Librarian> librarianList=new ArrayList<>();
+    private static List<Student> studentList=new ArrayList<>();
+
+
     public static void Login(){
+        librarianList.add(new Librarian("truong","tu",23,"truong1998","2421998"));
         Scanner scanner=new Scanner(System.in);
         int choice=-1;
         do{
             System.out.println("-----MENU-----");
-            System.out.println("1.view.mainMenu.Login with Librarian's account");
-            System.out.println("2.view.mainMenu.Login with Student's account");
-            System.out.println("3.exit");
+            System.out.println("1.Login with Librarian's account");
+            System.out.println("2.Login with Student's account");
+            System.out.println("0.exit");
             choice=scanner.nextInt();
             switch (choice){
                 case 1:
@@ -32,12 +37,11 @@ public class MenuLogin {
     }
     public static void loginLibrarianAccount(){
         Scanner scanner=new Scanner(System.in);
-        List<Librarian> librarianList=new ArrayList<>();
         LibrarianLogin librarianLogin=new LibrarianLogin(librarianList);
         String accountName;
         Librarian checkName=null;
         do{
-            System.out.println("view.mainMenu.Login account name:");
+            System.out.println("Login account name:");
             accountName=scanner.nextLine();
             checkName= librarianLogin.checkName(accountName);
             if(checkName==null){
@@ -54,15 +58,15 @@ public class MenuLogin {
                 System.out.println("Incorrect password");
             }
         }while (checkPass==false);
+        MenuLibrarian.menu();
     }
     public static void loginStudentAccount(){
         Scanner scanner=new Scanner(System.in);
-        List<Student> studentList=new ArrayList<>();
         StudentLogin studentLogin=new StudentLogin(studentList);
         String accountName;
         Student checkName=null;
         do{
-            System.out.println("view.mainMenu.Login account name:");
+            System.out.println("Login account name:");
             accountName=scanner.nextLine();
             checkName=studentLogin.checkName(accountName);
             if(checkName==null){

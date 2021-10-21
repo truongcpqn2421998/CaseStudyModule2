@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 public class MenuLibrarianManager {
     private static List<Librarian> librarianList=new ArrayList<>();
-
     private static LibrarianManager librarianManager=LibrarianManager.getInstance(librarianList);
 
     public static void menu(){

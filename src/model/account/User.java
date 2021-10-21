@@ -15,7 +15,6 @@ public abstract class User {
         this.password = password;
     }
 
-
     public String getName() {
         return name;
     }
@@ -58,7 +57,7 @@ public abstract class User {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "User{" +
                 "name='" + name + '\'' +
                 ", id='" + id + '\'' +
                 ", age=" + age +
